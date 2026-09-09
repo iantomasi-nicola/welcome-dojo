@@ -1,18 +1,22 @@
 // Core domain logic: fetching Open-Meteo multi-model data, normalizing it and
 // scoring each of the next 24 hours for outdoor calisthenics training.
 
-export const MODELS = ['ecmwf_ifs04', 'icon_seamless', 'gfs_seamless'] as const;
+// NOTE: Open-Meteo retired the legacy 0.4° "ecmwf_ifs04" model id in favor of
+// the 0.25° "ecmwf_ifs025" feed. The old id is silently ignored by the API
+// (no error, just an empty column for that model), which is why ECMWF used
+// to show up blank in the chart/reliability panel — use the current id.
+export const MODELS = ['ecmwf_ifs025', 'icon_seamless', 'gfs_seamless'] as const;
 export type ModelId = (typeof MODELS)[number];
 
 export const MODEL_LABELS: Record<ModelId, string> = {
-  ecmwf_ifs04: 'ECMWF',
+  ecmwf_ifs025: 'ECMWF',
   icon_seamless: 'ICON',
   gfs_seamless: 'GFS',
 };
 
 // Colors used consistently across the chart, legend and reliability panel.
 export const MODEL_COLORS: Record<ModelId, string> = {
-  ecmwf_ifs04: '#38bdf8', // sky
+  ecmwf_ifs025: '#38bdf8', // sky
   icon_seamless: '#a78bfa', // violet
   gfs_seamless: '#fb923c', // orange
 };

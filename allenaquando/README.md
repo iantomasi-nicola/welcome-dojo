@@ -10,7 +10,7 @@ richiesta.
 
 1. **Posizione**: geolocalizzazione del browser o coordinate manuali.
 2. **Dati meteo**: una singola chiamata a `api.open-meteo.com/v1/forecast` con
-   `models=ecmwf_ifs04,icon_seamless,gfs_seamless` e le variabili orarie
+   `models=ecmwf_ifs025,icon_seamless,gfs_seamless` e le variabili orarie
    `precipitation_probability, precipitation, rain, showers, weathercode,
    wind_speed_10m, wind_gusts_10m, cape, temperature_2m`.
 3. **Consensus score**: per ogni ora si calcola la deviazione standard della
